@@ -1,0 +1,90 @@
+body {
+  background-color: rgb(221, 54, 54);
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+}
+
+/* Caixa principal */
+.caixa {
+  background-color: azure;
+  opacity: 0.95;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 25px;
+  border-radius: 10px;
+
+  max-width: 400px;
+  width: 100%;
+  margin: 40px auto;
+}
+
+/* Containers internos */
+.sub-container {
+  display: flex;
+  justify-content: center;
+  margin: 15px 0;
+}
+
+/* Texto SVG */
+.texto-svg {
+  fill: white;
+  font-size: 3px;
+  text-anchor: middle;
+  dominant-baseline: middle;
+}
+
+.form-select {
+  width: 100%;
+}
+
+/* Botão de envio */
+#btn-envio {
+  width: 64px;
+  height: 64px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  color: rgb(216, 15, 15);
+  fill: currentColor;
+
+  transition: transform 0.3s, color 0.3s;
+}
+
+#btn-envio:hover {
+  color: rgb(216, 65, 65);
+  transform: scale(1.2);
+}
+
+#btn-history {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+
+  width: 64px;
+  height: 64px;
+
+  background-color: rgb(216, 15, 15);
+  border: none;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+  fill: currentColor;
+
+  cursor: pointer;
+  z-index: 1050;
+
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+#btn-history:hover {
+  background-color: rgb(216, 65, 65);
+  transform: scale(1.15);
+}
