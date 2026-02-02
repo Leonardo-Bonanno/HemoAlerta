@@ -16,7 +16,7 @@ body {
   padding: 25px;
   border-radius: 10px;
 
-  max-width: 400px;
+  max-width: 350px;
   width: 100%;
   margin: 40px auto;
 }
@@ -87,4 +87,18 @@ body {
 #btn-history:hover {
   background-color: rgb(216, 65, 65);
   transform: scale(1.15);
+}
+
+#alert-feedback {
+  max-width: 400px;
+  width: 100%;
+  margin: 20px auto;
+  margin-bottom: 15px;
+
+  transform: translateY(-10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+#alert-feedback.show {
+  transform: translateY(0);
 }

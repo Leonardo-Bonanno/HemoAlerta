@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     { data: "2026-01-22", local: "UPA Zona Sul", tipo: "AB+" },
   ];
 
-  // botão de envio
+  // Botão de envio
   btnEnvio.addEventListener("click", () => {
     if (!form.checkValidity()) {
       form.reportValidity();
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     modalConfirm.show();
   });
 
-  // botão modal
+  // Botão confirmação modal
   btnConfirmAlert.addEventListener("click", async () => {
     const hemocentro = form.hemocentro.value;
     const sanguineo = form.sanguineo.value;
@@ -48,19 +48,53 @@ document.addEventListener("DOMContentLoaded", () => {
 
     console.log("Resposta do backend:", data);
 
-    alert(data.message);
+    showAlert(data.message);
 
     modalConfirm.hide();
     form.reset();
   });
 
-  // botão de histórico
+  // Botão de histórico
   btnHistory.addEventListener("click", () => {
     loadTabelAlerts();
     modalHistory.show();
   });
 });
 
+function showAlert(message, type = "success") {
+  const alert = document.getElementById("alert-feedback");
+  const alertMessage = document.getElementById("alert-message");
+  const alertIcon = document.getElementById("alert-icon");
+
+  alert.classList.remove(
+    "alert-success",
+    "alert-danger",
+    "alert-warning",
+    "alert-info",
+  );
+  alertIcon.className = "me-2";
+
+  if (type === "success") {
+    alertIcon.classList.add("bi", "bi-check-circle-fill");
+  } else if (type === "danger") {
+    alertIcon.classList.add("bi", "bi-x-circle-fill");
+  }
+
+  alert.classList.add(`alert-${type}`);
+  alertMessage.textContent = message;
+
+  alert.style.display = "block";
+  alert.classList.add("show");
+
+  setTimeout(() => {
+    alert.classList.remove("show");
+    setTimeout(() => {
+      alert.style.display = "none";
+    }, 8000);
+  }, 8000);
+}
+
+// Carregar alerts
 async function loadTabelAlerts() {
   const tbody = document.getElementById("tabel-alerts");
 
@@ -113,7 +147,7 @@ async function loadTabelAlerts() {
 
 async function loadLocations() {
   try {
-    const selectLocal = document.getElementById('hemocentro');
+    const selectLocal = document.getElementById("hemocentro");
 
     const response = await fetch("http://localhost:3000/alerts/locals");
 
@@ -130,7 +164,6 @@ async function loadLocations() {
     });
 
     selectLocal.appendChild(fragment);
-
   } catch (error) {
     console.error("Erro ao carregar locais:", error);
   }
