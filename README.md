@@ -52,6 +52,7 @@ Funcionalidades atuais:
 * formulário para criação de alertas
 * histórico de alertas
 * layout responsivo
+* confirmação de alerta ou aviso de erro
 
 Hospedagem:
 

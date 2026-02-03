@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     console.log("Resposta do backend:", data);
 
-    showAlert(data.message);
+    showAlert(data.message, data.type);
 
     modalConfirm.hide();
     form.reset();
